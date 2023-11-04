@@ -228,4 +228,7 @@
     <string name="content_description_send_sms">Send SMS</string>
     <string name="grant">grant</string>
     <!--endregion-->
+
+    <string name="pref_title_app_color">主要颜色</string>
+
 </resources>

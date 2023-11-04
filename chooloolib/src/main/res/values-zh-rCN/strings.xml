@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Koler</string>
+    <string name="app_name">电话助手</string>
     <string name="recents">最近</string>
     <string name="contacts">联系人</string>
     <string name="conference">电话会议</string>
