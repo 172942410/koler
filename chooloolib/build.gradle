@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace "com.chooloo.www.chooloolib"
+    namespace "com.perry.lib"
     compileSdk rootProject.ext.sdkVersion
 
     defaultConfig {

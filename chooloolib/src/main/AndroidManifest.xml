@@ -35,7 +35,7 @@
             android:resource="@array/preloaded_fonts" />
 
         <service
-            android:name="com.chooloo.www.chooloolib.api.service.CallService"
+            android:name="com.perry.lib.api.service.CallService"
             android:exported="true"
             android:foregroundServiceType="phoneCall"
             android:permission="android.permission.BIND_INCALL_SERVICE">

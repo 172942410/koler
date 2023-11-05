@@ -2,13 +2,13 @@ package com.lianyun.lxd.contacts.ui.main
 
 import androidx.activity.viewModels
 import androidx.fragment.app.commit
-import com.chooloo.www.chooloolib.interactor.prompt.PromptsInteractor
-import com.chooloo.www.chooloolib.ui.base.BaseActivity
+import com.perry.lib.interactor.prompt.PromptsInteractor
+import com.perry.lib.ui.base.BaseActivity
 import com.lianyun.lxd.contacts.R
 import com.lianyun.lxd.contacts.databinding.MainBinding
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
-import com.chooloo.www.chooloolib.di.factory.fragment.FragmentFactory as ChoolooFragmentFactory
+import com.perry.lib.di.factory.fragment.FragmentFactory as ChoolooFragmentFactory
 
 @AndroidEntryPoint
 class MainActivity : BaseActivity<MainViewState>() {

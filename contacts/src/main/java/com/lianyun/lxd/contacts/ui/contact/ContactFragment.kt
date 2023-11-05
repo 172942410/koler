@@ -3,9 +3,9 @@ package com.lianyun.lxd.contacts.ui.contact
 import android.os.Bundle
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.commit
-import com.chooloo.www.chooloolib.interactor.prompt.PromptsInteractor
-import com.chooloo.www.chooloolib.interactor.telecom.TelecomInteractor
-import com.chooloo.www.chooloolib.ui.base.BaseFragment
+import com.perry.lib.interactor.prompt.PromptsInteractor
+import com.perry.lib.interactor.telecom.TelecomInteractor
+import com.perry.lib.ui.base.BaseFragment
 import com.lianyun.lxd.contacts.databinding.ContactBinding
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject

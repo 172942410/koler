@@ -4,11 +4,11 @@ import android.content.Intent
 import android.content.Intent.ACTION_VIEW
 import android.net.Uri
 import androidx.lifecycle.MutableLiveData
-import com.chooloo.www.chooloolib.interactor.navigation.NavigationsInteractor
-import com.chooloo.www.chooloolib.data.model.ContactAccount
-import com.chooloo.www.chooloolib.ui.base.BaseViewState
-import com.chooloo.www.chooloolib.util.MutableDataLiveEvent
-import com.chooloo.www.chooloolib.util.MutableLiveEvent
+import com.perry.lib.interactor.navigation.NavigationsInteractor
+import com.perry.lib.data.model.ContactAccount
+import com.perry.lib.ui.base.BaseViewState
+import com.perry.lib.util.MutableDataLiveEvent
+import com.perry.lib.util.MutableLiveEvent
 import com.lianyun.lxd.contacts.R
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject

@@ -1,6 +1,6 @@
 package com.lianyun.lxd.contacts
 
-import com.chooloo.www.chooloolib.ChoolooApp
+import com.perry.lib.ChoolooApp
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp

@@ -1,10 +1,10 @@
 package com.lianyun.lxdphone.ui.settings
 
 import androidx.fragment.app.activityViewModels
-import com.chooloo.www.chooloolib.R
+import com.perry.lib.R
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
-import com.chooloo.www.chooloolib.ui.settings.SettingsFragment as ChoolooSettingsFragment
+import com.perry.lib.ui.settings.SettingsFragment as ChoolooSettingsFragment
 
 @AndroidEntryPoint
 class SettingsFragment @Inject constructor() : ChoolooSettingsFragment() {

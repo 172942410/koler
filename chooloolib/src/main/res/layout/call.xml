@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     app:layoutDescription="@xml/call_scene"
-    tools:context="com.chooloo.www.chooloolib.ui.call.CallActivity">
+    tools:context="com.perry.lib.ui.call.CallActivity">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/call_middle_guideline"
@@ -16,7 +16,7 @@
         app:layout_constraintGuide_percent="0.5" />
 
     <!-- banner -->
-    <com.chooloo.www.chooloolib.ui.widgets.BannerTextView
+    <com.perry.lib.ui.widgets.BannerTextView
         android:id="@+id/call_banner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -85,13 +85,13 @@
         app:layout_constraintTop_toBottomOf="@id/call_name_text" />
 
     <!-- call actions -->
-    <com.chooloo.www.chooloolib.ui.callactions.CallActions
+    <com.perry.lib.ui.callactions.CallActions
         android:id="@+id/call_actions"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <!-- answer button -->
-    <com.chooloo.www.chooloolib.ui.widgets.IconButton
+    <com.perry.lib.ui.widgets.IconButton
         android:id="@+id/call_answer_button"
         style="@style/Chooloo.Button.Primary"
         android:layout_width="0dp"
@@ -103,7 +103,7 @@
         android:tint="@color/on_positive" />
 
     <!-- hangup button -->
-    <com.chooloo.www.chooloolib.ui.widgets.IconButton
+    <com.perry.lib.ui.widgets.IconButton
         android:id="@+id/call_reject_button"
         style="@style/Chooloo.Button.Primary"
         android:layout_width="0dp"

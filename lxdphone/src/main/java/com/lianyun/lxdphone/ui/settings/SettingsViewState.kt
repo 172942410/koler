@@ -1,20 +1,20 @@
 package com.lianyun.lxdphone.ui.settings
 
 import android.Manifest
-import com.chooloo.www.chooloolib.interactor.color.ColorsInteractor
-import com.chooloo.www.chooloolib.interactor.navigation.NavigationsInteractor
-import com.chooloo.www.chooloolib.interactor.permission.PermissionsInteractor
-import com.chooloo.www.chooloolib.interactor.preferences.PreferencesInteractor
-import com.chooloo.www.chooloolib.interactor.preferences.PreferencesInteractor.Companion.IncomingCallMode
-import com.chooloo.www.chooloolib.interactor.preferences.PreferencesInteractor.Companion.Page
-import com.chooloo.www.chooloolib.interactor.recents.RecentsInteractor
-import com.chooloo.www.chooloolib.interactor.string.StringsInteractor
-import com.chooloo.www.chooloolib.interactor.theme.ThemesInteractor
-import com.chooloo.www.chooloolib.ui.settings.SettingsViewState
-import com.chooloo.www.chooloolib.util.DataLiveEvent
-import com.chooloo.www.chooloolib.util.LiveEvent
-import com.chooloo.www.chooloolib.util.MutableDataLiveEvent
-import com.chooloo.www.chooloolib.util.MutableLiveEvent
+import com.perry.lib.interactor.color.ColorsInteractor
+import com.perry.lib.interactor.navigation.NavigationsInteractor
+import com.perry.lib.interactor.permission.PermissionsInteractor
+import com.perry.lib.interactor.preferences.PreferencesInteractor
+import com.perry.lib.interactor.preferences.PreferencesInteractor.Companion.IncomingCallMode
+import com.perry.lib.interactor.preferences.PreferencesInteractor.Companion.Page
+import com.perry.lib.interactor.recents.RecentsInteractor
+import com.perry.lib.interactor.string.StringsInteractor
+import com.perry.lib.interactor.theme.ThemesInteractor
+import com.perry.lib.ui.settings.SettingsViewState
+import com.perry.lib.util.DataLiveEvent
+import com.perry.lib.util.LiveEvent
+import com.perry.lib.util.MutableDataLiveEvent
+import com.perry.lib.util.MutableLiveEvent
 import com.lianyun.lxdphone.R
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -83,7 +83,7 @@ class SettingsViewState @Inject constructor(
             recents.deleteAllRecents()
             onFinish()
         }, {
-            onError(com.chooloo.www.chooloolib.R.string.error_no_permissions_edit_call_log)
+            onError(com.perry.lib.R.string.error_no_permissions_edit_call_log)
         })
     }
 

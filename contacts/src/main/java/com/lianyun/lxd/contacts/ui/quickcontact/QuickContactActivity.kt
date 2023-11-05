@@ -1,8 +1,8 @@
 package com.lianyun.lxd.contacts.ui.quickcontact
 
 import androidx.activity.viewModels
-import com.chooloo.www.chooloolib.interactor.prompt.PromptsInteractor
-import com.chooloo.www.chooloolib.ui.base.BaseActivity
+import com.perry.lib.interactor.prompt.PromptsInteractor
+import com.perry.lib.ui.base.BaseActivity
 import com.lianyun.lxd.contacts.databinding.QuickContactBinding
 import com.lianyun.lxd.contacts.di.factory.fragment.FragmentFactory
 import dagger.hilt.android.AndroidEntryPoint

@@ -2,8 +2,8 @@ package com.lianyun.lxd.contacts.ui.quickcontact
 
 import android.content.ContentUris
 import android.content.Intent
-import com.chooloo.www.chooloolib.ui.base.BaseViewState
-import com.chooloo.www.chooloolib.util.MutableDataLiveEvent
+import com.perry.lib.ui.base.BaseViewState
+import com.perry.lib.util.MutableDataLiveEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

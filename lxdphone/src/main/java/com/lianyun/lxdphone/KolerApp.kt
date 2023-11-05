@@ -2,8 +2,8 @@ package com.lianyun.lxdphone
 
 import android.telecom.TelecomManager
 import androidx.preference.PreferenceManager
-import com.chooloo.www.chooloolib.ChoolooApp
-import com.chooloo.www.chooloolib.notification.CallNotification
+import com.perry.lib.ChoolooApp
+import com.perry.lib.notification.CallNotification
 import dagger.hilt.android.HiltAndroidApp
 import javax.inject.Inject
 

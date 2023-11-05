@@ -31,7 +31,7 @@
         app:layout_constraintTop_toBottomOf="@id/prompt_title"
         tools:text="This is a subtitle" />
 
-    <com.chooloo.www.chooloolib.ui.widgets.IconButton
+    <com.perry.lib.ui.widgets.IconButton
         android:id="@+id/prompt_button_no"
         style="@style/Chooloo.Button.Secondary.Icon"
         android:layout_width="wrap_content"
@@ -44,7 +44,7 @@
         app:layout_constraintEnd_toStartOf="@id/prompt_button_yes"
         app:layout_constraintTop_toBottomOf="@id/prompt_subtitle" />
 
-    <com.chooloo.www.chooloolib.ui.widgets.IconButton
+    <com.perry.lib.ui.widgets.IconButton
         android:id="@+id/prompt_button_yes"
         style="@style/Chooloo.Button.Secondary.Icon"
         android:layout_width="wrap_content"

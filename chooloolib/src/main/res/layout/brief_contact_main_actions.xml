@@ -7,7 +7,7 @@
     android:rowCount="1"
     android:useDefaultMargins="true">
 
-    <com.chooloo.www.chooloolib.ui.widgets.IconButton
+    <com.perry.lib.ui.widgets.IconButton
         android:id="@+id/brief_contact_button_call"
         style="@style/Chooloo.Button.Primary"
         android:layout_width="0dp"
@@ -19,7 +19,7 @@
         android:gravity="center"
         app:icon='@drawable/call' />
 
-    <com.chooloo.www.chooloolib.ui.widgets.IconButton
+    <com.perry.lib.ui.widgets.IconButton
         android:id="@+id/brief_contact_button_edit"
         style="@style/Chooloo.Button.Primary"
         android:layout_width="0dp"
@@ -34,7 +34,7 @@
         app:layout_constraintStart_toEndOf="@id/brief_contact_button_call"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.chooloo.www.chooloolib.ui.widgets.IconButton
+    <com.perry.lib.ui.widgets.IconButton
         android:id="@+id/brief_contact_button_sms"
         style="@style/Chooloo.Button.Primary"
         android:layout_width="0dp"
@@ -46,7 +46,7 @@
         android:padding="15dp"
         app:icon="@drawable/chat" />
 
-    <com.chooloo.www.chooloolib.ui.widgets.IconButton
+    <com.perry.lib.ui.widgets.IconButton
         android:id="@+id/brief_contact_button_more"
         style="@style/Chooloo.Button.Primary"
         android:layout_width="0dp"

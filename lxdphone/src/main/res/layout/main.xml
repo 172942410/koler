@@ -7,7 +7,7 @@
     app:layoutDescription="@xml/main_scene">
 
     <!-- menu button -->
-    <com.chooloo.www.chooloolib.ui.widgets.IconButton
+    <com.perry.lib.ui.widgets.IconButton
         android:id="@+id/main_menu_button"
         style="@style/Chooloo.Button.Secondary.Icon"
         android:layout_width="wrap_content"
@@ -16,13 +16,13 @@
         app:icon="@drawable/more_vert" />
 
     <!-- tabs -->
-    <com.chooloo.www.chooloolib.ui.widgets.Tabs
+    <com.perry.lib.ui.widgets.Tabs
         android:id="@+id/main_tabs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <!-- search bar -->
-    <com.chooloo.www.chooloolib.ui.widgets.SearchBar
+    <com.perry.lib.ui.widgets.SearchBar
         android:id="@+id/main_search_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -1,6 +1,6 @@
 package com.lianyun.lxdphone.di.module
 
-import com.chooloo.www.chooloolib.di.module.ActivityModule
+import com.perry.lib.di.module.ActivityModule
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityComponent

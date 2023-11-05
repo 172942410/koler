@@ -1,4 +1,4 @@
-package com.chooloo.www.chooloolib
+package com.perry.lib
 
 import org.junit.Assert.assertEquals
 import org.junit.Test

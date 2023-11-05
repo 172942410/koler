@@ -5,18 +5,18 @@ import android.view.MotionEvent
 import androidx.activity.viewModels
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
-import com.chooloo.www.chooloolib.interactor.prompt.PromptsInteractor
-import com.chooloo.www.chooloolib.interactor.screen.ScreensInteractor
-import com.chooloo.www.chooloolib.ui.base.BaseActivity
-import com.chooloo.www.chooloolib.ui.contacts.ContactsViewState
-import com.chooloo.www.chooloolib.ui.dialer.DialerViewState
-import com.chooloo.www.chooloolib.ui.recents.RecentsViewState
+import com.perry.lib.interactor.prompt.PromptsInteractor
+import com.perry.lib.interactor.screen.ScreensInteractor
+import com.perry.lib.ui.base.BaseActivity
+import com.perry.lib.ui.contacts.ContactsViewState
+import com.perry.lib.ui.dialer.DialerViewState
+import com.perry.lib.ui.recents.RecentsViewState
 import com.lianyun.lxdphone.R
 import com.lianyun.lxdphone.databinding.MainBinding
 import com.lianyun.lxdphone.di.factory.fragment.FragmentFactory
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
-import com.chooloo.www.chooloolib.di.factory.fragment.FragmentFactory as ChoolooFragmentFactory
+import com.perry.lib.di.factory.fragment.FragmentFactory as ChoolooFragmentFactory
 
 @AndroidEntryPoint
 class MainActivity : BaseActivity<MainViewState>() {
