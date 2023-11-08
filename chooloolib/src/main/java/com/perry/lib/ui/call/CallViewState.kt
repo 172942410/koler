@@ -22,6 +22,7 @@ import com.perry.lib.data.model.Call.State.SELECT_PHONE_ACCOUNT
 import com.perry.lib.data.model.CantHoldCallException
 import com.perry.lib.data.model.CantMergeCallException
 import com.perry.lib.data.model.CantSwapCallException
+import com.perry.lib.interactor.audio.AudioRecordInteractor
 import com.perry.lib.interactor.audio.AudiosInteractor
 import com.perry.lib.interactor.audio.AudiosInteractor.AudioMode.NORMAL
 import com.perry.lib.interactor.callaudio.CallAudiosInteractor
@@ -38,10 +39,10 @@ import com.perry.lib.util.LiveEvent
 import com.perry.lib.util.MutableDataLiveEvent
 import com.perry.lib.util.MutableLiveEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
-import io.reactivex.Observable
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.schedulers.Schedulers
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.disposables.CompositeDisposable
+import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.coroutines.launch
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
@@ -56,11 +57,13 @@ class CallViewState @Inject constructor(
     private val disposables: CompositeDisposable,
     private val callAudios: CallAudiosInteractor,
     private val proximities: ProximitiesInteractor,
+    private val audioRecord: AudioRecordInteractor,
 ) :
     BaseViewState(),
     CallsInteractor.Listener,
     CallAudiosInteractor.Listener,
-    CallActions.CallActionsListener {
+    CallActions.CallActionsListener,
+    AudioRecordInteractor.Listener {
 
     private val _name = MutableLiveData<String?>()
     private val _imageRes = MutableLiveData<Int>()
@@ -122,7 +125,8 @@ class CallViewState @Inject constructor(
 
 
     override fun attach() {
-        disposables.add(Observable.interval(1, TimeUnit.SECONDS)
+        disposables.add(
+            Observable.interval(1, TimeUnit.SECONDS)
             .subscribeOn(Schedulers.newThread())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe { displayCallTime() })
@@ -130,6 +134,7 @@ class CallViewState @Inject constructor(
         CallService.sIsActivityActive = true
 
         proximities.acquire()
+        audioRecord.registerListener(this@CallViewState)
         calls.registerListener(this@CallViewState)
         callAudios.registerListener(this@CallViewState)
         calls.mainCall?.let {
@@ -140,7 +145,7 @@ class CallViewState @Inject constructor(
         }
 
         _isManageEnabled.value = false
-
+        audioRecord.initRecord()
 //        // text code
 //        _uiState.value = UIState.INCOMING
 //        _elapsedTime.value = 1L
@@ -153,11 +158,15 @@ class CallViewState @Inject constructor(
     }
 
     fun onAnswerClick() {
+        //这里接听电话；应该开始录音
+//        audioRecord.startRecord()
         _currentCallId?.let(calls::answerCall)
     }
 
     fun onRejectClick() {
+        //这里挂断电话应该停止录音
         _currentCallId?.let(calls::rejectCall)
+        audioRecord.stopRecord()
     }
 
     override fun onSwapClick() {
@@ -304,6 +313,7 @@ class CallViewState @Inject constructor(
         calls.mainCall?.let {
             _elapsedTime.value = if (it.isStarted) it.durationTimeMilis else null
         }
+//        audioRecord.startRecord()
     }
 
     fun onManageClick() {

@@ -69,13 +69,15 @@ dependencies {
             "androidx.navigation:navigation-fragment-ktx:2.5.3",
             "androidx.core:core-ktx:${rootProject.ext.coreKtxVersion}",
 
+            'io.reactivex.rxjava3:rxjava:3.1.8',
+            "io.reactivex.rxjava3:rxkotlin:3.0.1",
+            'io.reactivex.rxjava3:rxandroid:3.0.2',
+
             "androidx.compose.ui:ui:1.3.3",
             "dev.sasikanth:colorsheet:1.0.1",
             "com.squareup.picasso:picasso:2.5.2",
-            "io.reactivex.rxjava2:rxjava:2.1.16",
             "androidx.preference:preference:1.1.1",
             "io.github.l4digital:fastscroll:2.0.1",
-            "io.reactivex.rxjava2:rxandroid:2.0.1",
             "com.google.android.material:material:1.6.0",
             "com.github.abdularis:circularimageview:1.5",
             "com.daimajia.androidanimations:library:2.4@aar",

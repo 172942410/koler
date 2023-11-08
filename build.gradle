@@ -27,6 +27,10 @@ plugins {
     id 'com.google.dagger.hilt.android' version '2.44' apply false
 }
 
+ext {
+    rxkotlinVersion = '3.0.1'
+}
+
 allprojects {
     repositories {
         google()

@@ -86,14 +86,16 @@ dependencies {
             "androidx.navigation:navigation-fragment-ktx:2.5.3",
             "androidx.core:core-ktx:${rootProject.ext.coreKtxVersion}",
 
+            'io.reactivex.rxjava3:rxjava:3.1.8',
+            "io.reactivex.rxjava3:rxkotlin:3.0.1",
+            'io.reactivex.rxjava3:rxandroid:3.0.2',
+
             "dev.sasikanth:colorsheet:1.0.1",
             "androidx.room:room-runtime:2.2.6",
             "androidx.cardview:cardview:1.0.0",
-            "io.reactivex.rxjava2:rxjava:2.1.16",
             "com.jakewharton.timber:timber:4.7.1",
             "io.github.l4digital:fastscroll:2.0.1",
             "androidx.arch.core:core-common:2.1.0",
-            "io.reactivex.rxjava2:rxandroid:2.0.1",
             "androidx.annotation:annotation:1.1.0",
             "com.github.skydoves:androidveil:1.1.1",
             "androidx.arch.core:core-runtime:2.1.0",
@@ -111,5 +113,6 @@ dependencies {
             "com.googlecode.libphonenumber:libphonenumber:8.12.18",
             "com.google.dagger:hilt-android:${rootProject.ext.hiltVersion}",
             "androidx.appcompat:appcompat:${rootProject.ext.appCompatVersion}",
+            'pub.devrel:easypermissions:1.0.1',
     )
 }

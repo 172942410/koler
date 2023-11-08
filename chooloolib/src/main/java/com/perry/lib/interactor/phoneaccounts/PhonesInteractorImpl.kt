@@ -4,7 +4,7 @@ import com.perry.lib.data.model.PhoneAccount
 import com.perry.lib.data.model.PhoneLookupAccount
 import com.perry.lib.di.factory.contentresolver.ContentResolverFactory
 import com.perry.lib.interactor.base.BaseInteractorImpl
-import io.reactivex.exceptions.OnErrorNotImplementedException
+import io.reactivex.rxjava3.exceptions.OnErrorNotImplementedException
 import javax.inject.Inject
 import javax.inject.Singleton
 

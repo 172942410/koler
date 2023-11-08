@@ -8,7 +8,7 @@ import com.perry.lib.interactor.color.ColorsInteractor
 import com.perry.lib.interactor.preferences.PreferencesInteractor
 import com.perry.lib.interactor.string.StringsInteractor
 import com.perry.lib.interactor.theme.ThemesInteractor
-import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.rxjava3.disposables.CompositeDisposable
 import javax.inject.Inject
 
 abstract class BaseActivity<VM : BaseViewState> : AppCompatActivity(), BaseView<VM> {

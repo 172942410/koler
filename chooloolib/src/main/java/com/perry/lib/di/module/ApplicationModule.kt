@@ -29,6 +29,8 @@ import com.perry.lib.di.factory.fragment.FragmentFactory
 import com.perry.lib.di.factory.fragment.FragmentFactoryImpl
 import com.perry.lib.interactor.animation.AnimationsInteractor
 import com.perry.lib.interactor.animation.AnimationsInteractorImpl
+import com.perry.lib.interactor.audio.AudioRecordInteractor
+import com.perry.lib.interactor.audio.AudioRecordInteractorImpl
 import com.perry.lib.interactor.audio.AudiosInteractor
 import com.perry.lib.interactor.audio.AudiosInteractorImpl
 import com.perry.lib.interactor.blocked.BlockedInteractor
@@ -72,7 +74,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.rxjava3.disposables.CompositeDisposable
 
 @InstallIn(SingletonComponent::class)
 @Module(includes = [ApplicationModule.BindsModule::class])
@@ -88,7 +90,9 @@ class ApplicationModule {
     fun provideContentResolver(@ApplicationContext context: Context): ContentResolver =
         context.contentResolver
     //region manager
-
+    @Provides
+    fun provideContext(@ApplicationContext context: Context): Context =
+        context as Context
     @Provides
     fun provideUiManager(@ApplicationContext context: Context): UiModeManager =
         context.getSystemService(Context.UI_MODE_SERVICE) as UiModeManager
@@ -226,6 +230,8 @@ class ApplicationModule {
         @Binds
         fun bindNavigationsInteractor(navigationsInteractorImpl: NavigationsInteractorImpl): NavigationsInteractor
 
+        @Binds
+        fun bindAudioRecordInteractor(audioRecordInteractorImpl: AudioRecordInteractorImpl): AudioRecordInteractor
         //endregion
     }
 }

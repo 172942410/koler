@@ -8,6 +8,7 @@ import com.perry.lib.interactor.navigation.NavigationsInteractor
 import com.perry.lib.interactor.preferences.PreferencesInteractor
 import com.perry.lib.interactor.recents.RecentsInteractor
 import com.perry.lib.data.model.ContactAccount
+import com.perry.lib.interactor.audio.AudioRecordInteractor
 import com.perry.lib.interactor.permission.PermissionsInteractor
 import com.perry.lib.ui.dialpad.DialpadViewState
 import com.perry.lib.util.DataLiveEvent
@@ -25,6 +26,7 @@ class DialerViewState @Inject constructor(
     permissions: PermissionsInteractor,
     private val recents: RecentsInteractor,
     private val navigations: NavigationsInteractor,
+    private val audioRecord: AudioRecordInteractor,
 ) :
     DialpadViewState(permissions, audios, preferences, clipboardManager) {
 
@@ -50,6 +52,14 @@ class DialerViewState @Inject constructor(
         }
         '1' -> {
             _callVoicemailEvent.call()
+            true
+        }
+        '*' -> {
+            audioRecord.startRecord()
+            true
+        }
+        '#' -> {
+            audioRecord.stopRecord()
             true
         }
         else -> super.onLongKeyClick(char)
