@@ -47,18 +47,6 @@ dependencies {
             "com.google.dagger:hilt-compiler:${rootProject.ext.hiltVersion}"
     )
 
-    testImplementation(
-            "junit:junit:",
-            "androidx.room:room-testing:2.2.6"
-    )
-
-    androidTestImplementation(
-            "androidx.test:runner:1.3.0",
-            "androidx.test.ext:junit:1.1.3",
-            "androidx.compose.ui:ui-test-junit4:1.0.4",
-            "androidx.test.espresso:espresso-core:3.4.0"
-    )
-
     implementation(
             // ktx
             "androidx.fragment:fragment-ktx:1.5.5",
