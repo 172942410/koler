@@ -1,6 +1,11 @@
 package com.perry.audiorecorder.playlist;
 
+import static com.perry.audiorecorder.AppConstants.PATH;
+
+import android.content.Context;
 import android.os.Environment;
+
+import com.perry.audiorecorder.db.AppDataBase;
 import com.perry.audiorecorder.db.RecordItemDataSource;
 import com.perry.audiorecorder.db.RecordingItem;
 import com.perry.audiorecorder.mvpbase.BasePresenter;
@@ -18,13 +23,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-import javax.inject.Inject;
 
 public class PlayListPresenterImpl<V extends PlayListMVPView> extends BasePresenter<V>
     implements PlayListPresenter<V> {
   private static final int INVALID_ITEM = -1;
   private static final int PROGRESS_OFFSET = 20;
-  @Inject
   public RecordItemDataSource recordItemDataSource;
 
   private int currentPlayingItem;
@@ -32,9 +35,9 @@ public class PlayListPresenterImpl<V extends PlayListMVPView> extends BasePresen
   private boolean isAudioPaused = false;
   private List<RecordingItem> recordingItems = new ArrayList<>();
 
-  @Inject
-  public PlayListPresenterImpl(CompositeDisposable compositeDisposable) {
+  public PlayListPresenterImpl(CompositeDisposable compositeDisposable, Context context) {
     super(compositeDisposable);
+    recordItemDataSource = AppDataBase.getInstance(context).getRecordItemDataSource();
   }
 
   @Override public void onViewInitialised() {
@@ -62,7 +65,7 @@ public class PlayListPresenterImpl<V extends PlayListMVPView> extends BasePresen
   private Single<Integer> rename(RecordingItem recordingItem, int adapterPosition, String name) {
     return Single.create((SingleOnSubscribe<Integer>) e -> {
       File newFile = new File(
-          Environment.getExternalStorageDirectory().getAbsolutePath() + "/SoundRecorder/" + name);
+          Environment.getExternalStorageDirectory().getAbsolutePath() + PATH + name);
       if (newFile.exists() && !newFile.isDirectory()) {
         e.onError(new Exception("File with same name already exists"));
       } else {

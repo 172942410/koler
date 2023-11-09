@@ -3,24 +3,18 @@ package com.perry.audiorecorder.audiorecording;
 import android.content.Context;
 import com.perry.audiorecorder.AppConstants;
 import com.perry.audiorecorder.R;
-import com.perry.audiorecorder.di.qualifiers.ActivityContext;
 import com.perry.audiorecorder.mvpbase.BasePresenter;
 import com.perry.audiorecorder.recordingservice.AudioRecorder;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
 import java.util.Locale;
-import javax.inject.Inject;
 
 public class AudioRecordPresenterImpl<V extends AudioRecordMVPView> extends BasePresenter<V>
     implements AudioRecordPresenter<V> {
 
-  @Inject
-  @ActivityContext
-  public Context mContext;
   private boolean mIsRecording = false;
   private boolean mIsRecordingPaused = false;
 
-  @Inject
   public AudioRecordPresenterImpl(CompositeDisposable compositeDisposable) {
     super(compositeDisposable);
   }
@@ -87,7 +81,7 @@ public class AudioRecordPresenterImpl<V extends AudioRecordMVPView> extends Base
       recordTime -> getAttachedView().updateChronometer(getChronometerText(recordTime));
 
   private String getChronometerText(AudioRecorder.RecordTime recordTime) {
-    return String.format(Locale.getDefault(), mContext.getString(R.string.record_time_format),
+    return String.format(Locale.getDefault(), "%02d:%02d:%02d",
         recordTime.hours,
         recordTime.minutes,
         recordTime.seconds);

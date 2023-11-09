@@ -12,15 +12,15 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import androidx.annotation.CallSuper;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.core.content.ContextCompat;
 
 import com.orhanobut.hawk.Hawk;
 
-import dagger.android.support.DaggerAppCompatActivity;
 import com.perry.audiorecorder.R;
 
-public abstract class ThemedActivity extends DaggerAppCompatActivity implements UiElementInizializer {
+public abstract class ThemedActivity extends AppCompatActivity implements UiElementInizializer {
 
   private ThemeHelper themeHelper;
 

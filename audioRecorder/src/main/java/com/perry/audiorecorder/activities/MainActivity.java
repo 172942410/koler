@@ -16,13 +16,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
-import dagger.android.AndroidInjector;
-import dagger.android.DispatchingAndroidInjector;
 import com.perry.audiorecorder.R;
 import com.perry.audiorecorder.audiorecording.RecordFragment;
 import com.perry.audiorecorder.mvpbase.BaseActivity;
 import java.util.List;
-import javax.inject.Inject;
 import pub.devrel.easypermissions.EasyPermissions;
 
 public class MainActivity extends BaseActivity
@@ -31,16 +28,14 @@ public class MainActivity extends BaseActivity
   private static final String LOG_TAG = MainActivity.class.getSimpleName();
   private static final int PERMISSION_REQ = 222;
 
-  @Inject DispatchingAndroidInjector<Fragment> dispatchingAndroidInjector;
-
   @Override public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
-    if (savedInstanceState == null) {
+//    if (savedInstanceState == null) {
       getSupportFragmentManager().beginTransaction()
           .add(R.id.main_container, RecordFragment.newInstance())
           .commit();
-    }
+//    }
     getPermissions();
   }
 
@@ -96,7 +91,7 @@ public class MainActivity extends BaseActivity
   @TargetApi(23)
   private void getPermissions() {
     String[] perms = {Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE};
-    if (EasyPermissions.hasPermissions(this, perms)) {
+    if (!EasyPermissions.hasPermissions(this, perms)) {
       // 已经拥有相关权限
       isManager();//修改这里！！！ 如果是安卓11以上 获取文件管理者
     } else {

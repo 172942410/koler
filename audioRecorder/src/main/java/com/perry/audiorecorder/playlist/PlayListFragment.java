@@ -1,5 +1,7 @@
 package com.perry.audiorecorder.playlist;
 
+import static com.perry.audiorecorder.AppConstants.PATH;
+
 import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -19,7 +21,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import dagger.android.support.AndroidSupportInjection;
 import com.perry.audiorecorder.R;
 import com.perry.audiorecorder.db.RecordingItem;
 import com.perry.audiorecorder.recordingservice.Constants;
@@ -29,15 +30,14 @@ import com.perry.audiorecorder.theme.ThemedFragment;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import javax.inject.Inject;
+
+import io.reactivex.disposables.CompositeDisposable;
 
 public class PlayListFragment extends ThemedFragment implements PlayListMVPView {
   private static final String LOG_TAG = "PlayListFragment";
 
-  @Inject
   public PlayListAdapter mPlayListAdapter;
 
-  @Inject
   public PlayListPresenter<PlayListMVPView> playListPresenter;
 
   private RecyclerView mRecordingsListView;
@@ -50,12 +50,12 @@ public class PlayListFragment extends ThemedFragment implements PlayListMVPView 
 
   @Override public void onAttach(Context context) {
     super.onAttach(context);
-    AndroidSupportInjection.inject(this);
   }
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+    playListPresenter = new PlayListPresenterImpl<>(new CompositeDisposable(),getContext());
     playListPresenter.onAttach(this);
   }
 
@@ -79,26 +79,27 @@ public class PlayListFragment extends ThemedFragment implements PlayListMVPView 
     llm.setStackFromEnd(true);
 
     mRecordingsListView.setLayoutManager(llm);
+    mPlayListAdapter = new PlayListAdapter(getContext(),playListPresenter);
     //mRecordingsListView.setItemAnimator(new DefaultItemAnimator());
     mRecordingsListView.setAdapter(mPlayListAdapter);
     playListPresenter.onViewInitialised();
   }
 
   private final FileObserver observer = new FileObserver(
-      android.os.Environment.getExternalStorageDirectory().toString() + "/SoundRecorder") {
+      android.os.Environment.getExternalStorageDirectory().toString() + PATH) {
     // set up a file observer to watch this directory on sd card
     @Override public void onEvent(int event, String file) {
       if (event == FileObserver.DELETE) {
         // user deletes a recording file out of the app
 
         String filePath = android.os.Environment.getExternalStorageDirectory().toString()
-            + "/SoundRecorder"
+            + PATH
             + file
             + "]";
 
         Log.d(LOG_TAG, "File deleted ["
             + android.os.Environment.getExternalStorageDirectory().toString()
-            + "/SoundRecorder"
+            + PATH
             + file
             + "]");
 

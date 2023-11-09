@@ -12,10 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.perry.audiorecorder.R;
 import com.perry.audiorecorder.db.RecordingItem;
-import com.perry.audiorecorder.di.qualifiers.ActivityContext;
 import com.perry.audiorecorder.libs.FillSeekBar;
 import java.util.concurrent.TimeUnit;
-import javax.inject.Inject;
 
 public class PlayListAdapter extends RecyclerView.Adapter<PlayListAdapter.RecordingsViewHolder> {
 
@@ -26,8 +24,7 @@ public class PlayListAdapter extends RecyclerView.Adapter<PlayListAdapter.Record
   private final Context mContext;
   private final PlayListPresenter<PlayListMVPView> playListPresenter;
 
-  @Inject
-  public PlayListAdapter(@ActivityContext Context context,
+  public PlayListAdapter(Context context,
       PlayListPresenter<PlayListMVPView> playListPresenter) {
     mContext = context;
     this.playListPresenter = playListPresenter;

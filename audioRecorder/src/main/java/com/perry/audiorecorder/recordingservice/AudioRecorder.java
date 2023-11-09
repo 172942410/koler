@@ -18,7 +18,6 @@ import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicLong;
-import javax.inject.Inject;
 
 public class AudioRecorder implements IAudioRecorder {
 
@@ -45,7 +44,6 @@ public class AudioRecorder implements IAudioRecorder {
   private final AtomicBoolean mIsPaused = new AtomicBoolean(false);
   private RecordTime currentRecordTime;
 
-  @Inject
   public AudioRecorder(AudioSaveHelper audioSaveHelper) {
     this.audioSaveHelper = audioSaveHelper;
   }

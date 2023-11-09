@@ -17,21 +17,21 @@ import androidx.core.app.NotificationCompat;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.orhanobut.hawk.Hawk;
-import dagger.android.AndroidInjection;
 import com.perry.audiorecorder.AppConstants;
 import com.perry.audiorecorder.R;
 import com.perry.audiorecorder.activities.MainActivity;
+import com.perry.audiorecorder.db.AppDataBase;
+import com.perry.audiorecorder.db.RecordItemDao_Impl;
+import com.perry.audiorecorder.db.RecordItemDataSource;
+
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import java.util.Locale;
-import javax.inject.Inject;
 
 public class AudioRecordService extends Service {
   private static final String LOG_TAG = "RecordingService";
 
-  @Inject
   public AudioRecorder audioRecorder;
-  @Inject
   public AudioRecordingDbmHandler handler;
   private ServiceBinder mIBinder;
   private NotificationManager mNotificationManager;
@@ -51,7 +51,11 @@ public class AudioRecordService extends Service {
   @Override
   public void onCreate() {
     super.onCreate();
-    AndroidInjection.inject(this);
+    handler = new AudioRecordingDbmHandler();
+
+    RecordItemDataSource recordItemDataSource = AppDataBase.getInstance(this).getRecordItemDataSource();
+    AudioSaveHelper audioSaveHelper = new AudioSaveHelper(recordItemDataSource);
+    audioRecorder = new AudioRecorder(audioSaveHelper);
     handler.addRecorder(audioRecorder);
     mIBinder = new ServiceBinder();
     mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);

@@ -1,11 +1,12 @@
 package com.perry.lib
 
 import android.app.Application
+import com.perry.audiorecorder.AudioRecorderApp
 import com.perry.lib.interactor.preferences.PreferencesInteractor
 import com.perry.lib.interactor.theme.ThemesInteractor
 import javax.inject.Inject
 
-abstract class ChoolooApp : Application() {
+abstract class ChoolooApp : AudioRecorderApp() {
     @Inject lateinit var themes: ThemesInteractor
     @Inject lateinit var preferences: PreferencesInteractor
 

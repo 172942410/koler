@@ -1,5 +1,7 @@
 package com.perry.audiorecorder.recordingservice;
 
+import static com.perry.audiorecorder.AppConstants.PATH;
+
 import android.media.AudioFormat;
 import android.os.Environment;
 import android.util.Log;
@@ -12,7 +14,6 @@ import java.io.OutputStream;
 import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-import javax.inject.Inject;
 
 class AudioSaveHelper {
 
@@ -21,7 +22,6 @@ class AudioSaveHelper {
   private File mFile;
   private int mRecordSampleRate;
 
-  @Inject
   public AudioSaveHelper(RecordItemDataSource recordItemDataSource) {
     this.recordItemDataSource = recordItemDataSource;
   }
@@ -29,7 +29,7 @@ class AudioSaveHelper {
   public void createNewFile() {
     Log.i("TEsting", "creating file");
     String storeLocation = Environment.getExternalStorageDirectory().getAbsolutePath();
-    File folder = new File(storeLocation + "/SoundRecorder");
+    File folder = new File(storeLocation + PATH);
     if (!folder.exists()) {
       folder.mkdir();
     }
@@ -40,7 +40,7 @@ class AudioSaveHelper {
       fileName = "AudioRecord_"
           + (recordItemDataSource.getRecordingsCount() + count)
           + Constants.AUDIO_RECORDER_FILE_EXT_WAV;
-      String mFilePath = storeLocation + "/SoundRecorder/" + fileName;
+      String mFilePath = storeLocation + PATH + fileName;
       mFile = new File(mFilePath);
     } while (mFile.exists() && !mFile.isDirectory());
 

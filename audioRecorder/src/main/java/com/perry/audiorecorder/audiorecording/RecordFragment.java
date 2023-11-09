@@ -25,20 +25,19 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.jakewharton.rxbinding2.view.RxView;
 
-import dagger.android.support.AndroidSupportInjection;
 import com.perry.audiorecorder.AppConstants;
 import com.perry.audiorecorder.R;
 import com.perry.audiorecorder.activities.PlayListActivity;
 import com.perry.audiorecorder.activities.SettingsActivity;
 import com.perry.audiorecorder.audiovisualization.GLAudioVisualizationView;
-import com.perry.audiorecorder.di.qualifiers.ActivityContext;
 import com.perry.audiorecorder.recordingservice.AudioRecordService;
 import com.perry.audiorecorder.recordingservice.AudioRecorder;
 import com.perry.audiorecorder.theme.ThemeHelper;
 import com.perry.audiorecorder.theme.ThemedFragment;
+
+import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
-import javax.inject.Inject;
 
 public class RecordFragment extends ThemedFragment implements AudioRecordMVPView {
   private static final String LOG_TAG = RecordFragment.class.getSimpleName();
@@ -53,11 +52,8 @@ public class RecordFragment extends ThemedFragment implements AudioRecordMVPView
   private FloatingActionButton mSettingsButton;
   private FloatingActionButton mPlayListBtn;
 
-  @Inject
-  @ActivityContext
   public Context mContext;
 
-  @Inject
   public AudioRecordPresenter<AudioRecordMVPView> audioRecordPresenter;
 
   public static RecordFragment newInstance() {
@@ -66,11 +62,12 @@ public class RecordFragment extends ThemedFragment implements AudioRecordMVPView
 
   @Override public void onAttach(Context context) {
     super.onAttach(context);
-    AndroidSupportInjection.inject(this);
   }
 
   @Override public void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+    mContext = getContext();
+    audioRecordPresenter = new AudioRecordPresenterImpl(new CompositeDisposable());
     audioRecordPresenter.onAttach(this);
   }
 
