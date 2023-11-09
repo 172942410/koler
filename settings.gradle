@@ -1,3 +1,4 @@
 include ':lxdphone'
 include ':phonelib'
 include ':contacts'
+include ':audioRecorder'

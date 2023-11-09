@@ -48,6 +48,7 @@ class MainActivity : BaseActivity<MainViewState>()
     @Inject lateinit var fragmentFactory: FragmentFactory
     @Inject lateinit var choolooFragmentFactory: ChoolooFragmentFactory
 
+    private val TAG = "MainActivity"
     private val PERMISSION_REQ = 333
     override fun onSetup() {
         getPermissions()
@@ -64,7 +65,11 @@ class MainActivity : BaseActivity<MainViewState>()
             mainDialpadButton.setOnClickListener {
                 viewState.onDialpadFabClick()
             }
-
+            buttonTest.setOnClickListener{
+                Log.d(TAG,"测试按钮点击了")
+                val intent = Intent(this@MainActivity,com.perry.audiorecorder.activities.MainActivity::class.java)
+                startActivity(intent)
+            }
             mainSearchBar.setOnTextChangedListener { st ->
                 contactsViewState.onFilterChanged(st)
                 recentsViewState.onFilterChanged(st)

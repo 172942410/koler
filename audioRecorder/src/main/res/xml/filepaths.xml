@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+  <!--    物理路径相当于Context.getFilesDir() + /path/-->
+  <!--    <files-path name="name" path="path" />-->
+
+  <!--    物理路径相当于Context.getCacheDir() + /path/-->
+  <!--    <cache-path name="name" path="path" />-->
+
+  <!--    物理路径相当于Environment.getExternalStorageDirectory() + /path/-->
+  <external-path name="SoundRecorder" path="SoundRecorder" />
+
+  <!--    物理路径相当于Context.getExternalFilesDir(String) + /path/-->
+  <!--    <external-files-path name="name" path="path" />-->
+
+  <!--    物理路径相当于Context.getExternalCacheDir() + /path/-->
+  <external-cache-path name="SoundRecorder" path="SoundRecorder" />
+
+  <external-files-path name="SoundRecorder" path="SoundRecorder" />
+</resources>
+<!--<paths>-->
+<!--  <external-path-->
+<!--      path="SoundRecorder/"-->
+<!--      name="SoundRecorder"/>-->
+<!--</paths>-->
