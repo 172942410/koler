@@ -74,8 +74,8 @@ dependencies {
     )
 
     implementation(
-            project(":chooloolib"),
-            fileTree(include: ["*.jar"], dir: "libs"),
+             project(":phonelib"),
+             fileTree(include: ["*.jar"], dir: "libs"),
 
             // ktx
             "androidx.fragment:fragment-ktx:1.5.5",
